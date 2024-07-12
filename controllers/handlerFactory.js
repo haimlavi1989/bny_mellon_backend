@@ -10,7 +10,7 @@ exports.deleteOne = (Model) => async (req, res, next) => {
       }
   
       res.status(204).json({
-        status: 'success',
+        status: 204,
         data: null
       });
 
@@ -31,7 +31,7 @@ exports.updateOne = (Model) => async (req, res, next) => {
       }
   
       res.status(200).json({
-        status: 'success',
+        status: 200,
         data: doc
       });
 
@@ -45,7 +45,7 @@ exports.createOne = (Model) => async (req, res, next) => {
       const doc = await Model.create(req.body);
 
       res.status(201).json({
-        status: 'success',
+        status: 201,
         data: doc
       });
 
@@ -66,7 +66,7 @@ exports.getOne = (Model, popOptions) => async (req, res, next) => {
       }
   
       res.status(200).json({
-        status: 'success',
+        status: 200,
         data: doc
       });
 
@@ -97,7 +97,7 @@ exports.getAll = (Model, popOptions) => async (req, res, next) => {
 
       // SEND RESPONSE
       res.status(200).json({
-        status: 'success',
+        status: 200,
         fullResoults,
         results: doc.length,
         data: doc
@@ -135,7 +135,7 @@ exports.getAllForSpecificUserID = (Model, popOptions) => async (req, res, next) 
 
       // SEND RESPONSE
       res.status(200).json({
-        status: 'success',
+        status: 200,
         fullResoults,
         results: doc.length,
         data: doc

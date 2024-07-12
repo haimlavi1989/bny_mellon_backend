@@ -3,6 +3,7 @@ const Router = express.Router();
 const authController = require('./../controllers/authController');
 const signupValidation = require('../validation/signupValidation');
 const validationMiddleware = require('../validation/validationMiddleware');
+const userController = require('./../controllers/userController');
 
 Router.post('/signup',
   signupValidation.signupValidationRules(),
@@ -15,17 +16,13 @@ Router.post('/login',
 Router.post('/forgotPassword', authController.forgotPassword);
 Router.patch('/resetPassword/:token', authController.resetPassword);
 
-/*
+
 Router.route('/')
-  .get(userController.getAllUsers)
-  .post(userController.createUser);
-*/
-Router.route('/:id');
-  //.get(userController.getUser)
-  //.delete(userController.deleteUser);
+  .get(userController.getUsers)
+  .post(userController.createUser)
 
-// Router.route('/updateUser')
-// .patch(userController.updateUser);
-
+Router.route('/:id')
+  .delete(userController.deleteUser)
+  .patch(userController.updateUser);
 
 module.exports = Router;
